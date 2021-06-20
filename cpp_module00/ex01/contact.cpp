@@ -58,19 +58,19 @@ void	contact::table_contact(int index, contact m_contact[])
 	while (i < index)
 	{
 		std::cout << "|" << std::setw(10) << i + 1;
-		if (std::strlen(m_contact[i].f_name.c_str()) >= 10)
+		if (std::strlen(m_contact[i].f_name.c_str()) > 10)
         {
 			std::cout << "|" << std::setw(10) << m_contact[i].f_name.substr(0,9) + ".";
         }
 		else
 			std::cout << "|" << std::setw(10) << m_contact[i].f_name;
-		if (std::strlen(m_contact[i].l_name.c_str()) >= 10)
+		if (std::strlen(m_contact[i].l_name.c_str()) > 10)
         {
 			std::cout << "|" << std::setw(10) <<  m_contact[i].l_name.substr(0,9) + ".";
         }
 		else
 			std::cout << "|" << std::setw(10) <<  m_contact[i].l_name;
-		if (std::strlen(m_contact[i].nickname.c_str()) >= 10)
+		if (std::strlen(m_contact[i].nickname.c_str()) > 10)
         {
 			std::cout << "|" << std::setw(10) << m_contact[i].nickname.substr(0,9) + "." ;
         }
@@ -98,7 +98,7 @@ void	contact::search_contact(int index, contact m_contact[])
     idx = get_input(idx);
 	if (!(is_number(idx.c_str())))
 		return ;
-	if ((i = atoi(idx.c_str()) - 1) < 8 && i < index)
+	if ((i = atoi(idx.c_str()) - 1) < 8 && i >= 0 && i < index)
 		display_contact(i, m_contact);
 	else
 		std::cout << "\033[1;31m~> Wrong index, Try again! ~~~>\033[0m" << std::endl;
