@@ -1,7 +1,13 @@
-#include "Pony.hpp"
+#include "./Zombie.hpp"
 
 int main()
 {
-	ponyOnTheHeap();
-	ponyOnTheStack();
+    std::string name;
+    Zombie *zombie;
+    std::cout << "Enter the zombie's name" << std::endl;
+    std::cin >> name;
+    zombie = newZombie(name);
+    randomChump(name);
+    delete zombie;
+    return (0);
 }
