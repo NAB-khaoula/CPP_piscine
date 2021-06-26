@@ -8,6 +8,7 @@ int main()
     std::cin >> name;
     zombie = newZombie(name);
     randomChump(name);
+    std::cout << "done" << std::endl;
     delete zombie;
     return (0);
 }
