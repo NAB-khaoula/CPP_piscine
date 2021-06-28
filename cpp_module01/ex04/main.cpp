@@ -1,37 +1,47 @@
 #include <iostream>
 #include <fstream>
 
-void    _replaceString(std::string str, std::string s1, std::string s2)
+std::string	_uppercaseAddingExtension(std::string name, std::string extension)
+{
+	for(size_t i = 0; i < name.size(); i++)
+		name[i] = toupper(name[i]);
+	name += extension;
+	return name;
+}
+
+std::string	_replaceString(std::string line, std::string initial, std::string modified)
 {
 	size_t found;
-	std::ifstream input_filename;
-	std::ofstream output_filename;
-	input_filename.open(str);
-	for(size_t i = 0; i < str.size(); i++)
+	found = line.find(initial, 0);
+	while (line[found] && initial != modified)
 	{
-		str[i] = toupper(str[i]);
+		if (found == std::string::npos)
+			break;
+		line = line.substr(0, found) + modified + &line[found + initial.size()];
+		found = line.find(initial, found + modified.length());
 	}
-	str += ".replace";
-	output_filename.open(str, std::ios::out);
-	std::cout << "---------------------------------------" << std::endl;
-	while (getline(input_filename, str))
-	{
-		found = str.find(s1);
-		std::cout << found << std::endl;
-		std::cout << "BEFORE|" << str << "|" << std::endl;
-			str = str.substr(0, found) + s2 + &str[found + s1.size()];
-		std::cout << "AFTER|" << str << "|" << std::endl;
-		// output_filename << str << std::endl;
-	}
-	
+	return line;
+}
+
+void	_writeInFile(std::ifstream inputFilename, std::ofstream outputFilename, char **arguments)
+{
+	std::string line;
+	while (getline(inputFilename, line))
+		outputFilename << _replaceString(line, arguments[2], arguments[3]) << std::endl;
 }
 
 int main(int ac, char **av)
 {
-	std::string filename;
-	if (ac != 3)
+	if (ac != 4)
 		return 1;
-	_replaceString(av[0], av[1], av[2]);
+	std::ifstream inputFilename(av[1]);
+	if (!inputFilename.is_open())
+	{
+		std::cout << "ERROR, file doesn't exist!" << std::endl;
+		return 1;
+	}
+	std::ofstream outputFilename;
+	outputFilename.open(_uppercaseAddingExtension(av[1], ".replace"), std::ios::out);
+	_writeInFile(inputFilename, outputFilename, av);
 	return 0;
 }
-
