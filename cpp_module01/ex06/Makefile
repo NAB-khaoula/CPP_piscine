@@ -1,28 +1,27 @@
-NAME = Zombie
+NAME = karenFilter
+INCLUDES =	./Karen.hpp
 
 CFLAGS = -Wall -Wextra -Werror  -std=c++98
 
 CC = clang++
 
-SRC = 	./newZombie.cpp	\
-		./Zombie.cpp		\
-		./main.cpp			\
-		./randomChump.cpp
+SRC = 	./Karen.cpp	\
+		./main.cpp
 
 bold = $(shell tput bold)
 
 all: $(NAME)
 
-$(NAME): $(SRC)
+$(NAME): $(SRC) $(INCLUDES)
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	@echo "${bold}COMPILATION DONE!"
 
 clean:
-	@rm -rf $(NAME)
+	rm -rf $(NAME)
 	@echo "${bold}EXECUTION FILE IS SUCCESSFULLY REMOVED"
 
 fclean:
-	@rm -f $(NAME)
+	rm -f $(NAME)
 	@echo "${bold}EXECUTION FILE IS SUCCESSFULLY REMOVED"
 
 re: fclean all

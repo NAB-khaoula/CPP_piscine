@@ -1,9 +1,11 @@
 #include "./Karen.hpp"
 
-int main(int ac, char **av)
+int main()
 {
 	Karen karen;
-	if (ac == 2)
-		karen.complain(av[1]);
+	std::string levelComplain;
+	std::cout << "HERE WE ARE KAREN, GIVE YOUR COMPLAINS!" << std::endl;
+	std::cin >> levelComplain;	
+	karen.complain(levelComplain);
 	return 0;
 }

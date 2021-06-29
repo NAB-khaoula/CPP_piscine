@@ -13,6 +13,7 @@ const std::string& Weapon::getType()
 Weapon::Weapon()
 {
 }
+Weapon::Weapon(std::string init) : _type(init) {}
 
 Weapon::~Weapon()
 {

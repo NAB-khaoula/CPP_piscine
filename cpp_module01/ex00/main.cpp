@@ -7,7 +7,8 @@ int main()
     std::cout << "Enter the zombie's name" << std::endl;
     std::cin >> name;
     zombie = newZombie(name);
-    randomChump(name + "stack");
+    zombie->announce();
+    randomChump(name);
     delete zombie;
     return (0);
 }

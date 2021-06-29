@@ -10,7 +10,7 @@ private:
     Weapon&     _humanAWeapon;
 public:
     void    attack();
-    HumanA(std::string init_name, Weapon& humanAWeapon) : _name(init_name), _humanAWeapon(humanAWeapon) {}
+    HumanA(std::string init_name, Weapon& humanAWeapon);
     ~HumanA();
 };
 

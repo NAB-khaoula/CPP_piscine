@@ -10,6 +10,8 @@ void	HumanB::setWeapon(Weapon& humanBWeapon)
 	_humanBWeapon = &humanBWeapon;
 }
 
+HumanB::HumanB(std::string init) : _name(init), _humanBWeapon(nullptr) {}
+
 HumanB::~HumanB()
 {
 }

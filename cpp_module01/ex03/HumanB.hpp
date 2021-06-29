@@ -11,7 +11,7 @@ public:
     void    attack();
     void    setWeapon(Weapon& humanBWeapon);
     HumanB();
-    HumanB(std::string init) : _name(init){}
+    HumanB(std::string init);
     ~HumanB();
 };
 
