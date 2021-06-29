@@ -2,12 +2,11 @@
 
 Zombie::Zombie()
 {
-	std::cout << "Zombie has been created!" << std::endl;
 }
 
 Zombie::~Zombie()
 {
-    std::cout << "Zombie has been destoyed!" << std::endl;
+    std::cout << "Zombie " << _name << " has been destoyed!" << std::endl;
 }
 
 void    Zombie::announce()

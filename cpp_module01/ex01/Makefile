@@ -1,4 +1,5 @@
 NAME = Zombie
+INCLUDES =	./Zombie.hpp
 
 CFLAGS = -Wall -Wextra -Werror  -std=c++98
 
@@ -12,7 +13,7 @@ bold = $(shell tput bold)
 
 all: $(NAME)
 
-$(NAME): $(SRC)
+$(NAME): $(SRC) $(INCLUDES)
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	@echo "${bold}COMPILATION DONE!"
 

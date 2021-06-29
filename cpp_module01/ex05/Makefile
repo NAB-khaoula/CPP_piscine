@@ -1,15 +1,11 @@
-NAME = Zombie
-INCLUDES =	./HumanA.hpp	\
-			./HumanB.hpp	\
-			./Weapon.hpp
+NAME = Karen
+INCLUDES =	./Karen.hpp
 
 CFLAGS = -Wall -Wextra -Werror  -std=c++98
 
 CC = clang++
 
-SRC = 	./HumanA.cpp	\
-		./HumanB.cpp	\
-		./Weapon.cpp	\
+SRC = 	./Karen.cpp	\
 		./main.cpp
 
 bold = $(shell tput bold)
@@ -17,7 +13,7 @@ bold = $(shell tput bold)
 all: $(NAME)
 
 $(NAME): $(SRC) $(INCLUDES)
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	@echo "${bold}COMPILATION DONE!"
 
 clean:
