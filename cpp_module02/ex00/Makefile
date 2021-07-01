@@ -5,7 +5,6 @@ CFLAGS = -Wall -Wextra -Werror  -std=c++98
 CC = clang++
 
 SRC = 	Fixed.cpp	\
-		Fixed.hpp	\
 		main.cpp
 
 bold = $(shell tput bold)

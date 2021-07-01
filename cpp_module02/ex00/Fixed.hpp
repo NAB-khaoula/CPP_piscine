@@ -11,7 +11,6 @@ class Fixed
 		static const int	_numberFractionalBits = 8;
 	public:
 		Fixed(void);
-		Fixed(const int fixedPoint);
 		Fixed(const Fixed &fixed);
 		~Fixed(void);
 		Fixed &operator= (Fixed const &fixed);
