@@ -10,19 +10,13 @@ class Fixed
 		int 			_fixedPoint;
 		static const int	_numberFractionalBits = 8;
 	public:
-		Fixed();
-		~Fixed();
-		Fixed() : _fixedPoint(0) {}
+		Fixed(void);
+		Fixed(const int fixedPoint);
+		Fixed(const Fixed &fixed);
+		~Fixed(void);
+		Fixed &operator= (Fixed const &fixed);
+		int getRawBits( void ) const;
+		void setRawBits( int const raw );
 };
-
-Fixed::Fixed(/* args */)
-{
-}
-
-Fixed::~Fixed()
-{
-}
-
-
 
 #endif
