@@ -25,5 +25,4 @@ class Fixed
 
 std::ostream 	&operator<< (std::ostream &os, Fixed const &fixed);
 
-
 #endif
