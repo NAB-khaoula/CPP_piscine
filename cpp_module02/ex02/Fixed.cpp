@@ -87,34 +87,34 @@ std::ostream& 	operator<< (std::ostream &os, Fixed const &fixed)
 	return (os);
 }
 
-bool		 	operator== (Fixed const &fixed1, Fixed const &fixed2)
+bool		 	Fixed::operator== (Fixed const &fixed)
 {
-	return(fixed1.getRawBits() == fixed2.getRawBits());
+	return(fixed._fixedPoint == this->_fixedPoint);
 }
 
-bool		 	operator!= (Fixed const &fixed1, Fixed const &fixed2)
+bool		 	Fixed::operator!= (Fixed const &fixed)
 {
-	return(fixed1.getRawBits() != fixed2.getRawBits());
+	return(fixed._fixedPoint != this->_fixedPoint);
 }
 
-bool		 	operator>= (Fixed const &fixed1, Fixed const &fixed2)
+bool		 	Fixed::operator>= (Fixed const &fixed)
 {
-	return(fixed1.getRawBits() >= fixed2.getRawBits());
+	return(this->_fixedPoint >= fixed._fixedPoint );
 }
 
-bool		 	operator<= (Fixed const &fixed1, Fixed const &fixed2)
+bool		 	Fixed::operator<= (Fixed const &fixed)
 {
-	return(fixed1.getRawBits() <= fixed2.getRawBits());
+	return(this->_fixedPoint <= fixed._fixedPoint );
 }
 
-bool		 	operator> (Fixed const &fixed1, Fixed const &fixed2)
+bool		 	Fixed::operator> (Fixed const &fixed)
 {
-	return(fixed1.getRawBits() > fixed2.getRawBits());
+	return(this->_fixedPoint > fixed._fixedPoint);
 }
 
-bool		 	operator< (Fixed const &fixed1, Fixed const &fixed2)
+bool		 	Fixed::operator< (Fixed const &fixed)
 {
-	return(fixed1.getRawBits() < fixed2.getRawBits());
+	return(this->_fixedPoint < fixed._fixedPoint );
 }
 
 Fixed			&Fixed::operator++ ()
@@ -153,21 +153,21 @@ Fixed 			&Fixed::min(Fixed &fixed1, Fixed &fixed2)
 
 Fixed	const	&Fixed::min(Fixed const &fixed1, Fixed const &fixed2)
 {
-	if (fixed1 >= fixed2)
+	if ((Fixed)fixed1 >= (Fixed)fixed2)
 		return (fixed2);
 	return (fixed1);
 }
 
 Fixed 			&Fixed::max(Fixed &fixed1, Fixed &fixed2)
 {
-	if (fixed1 <= fixed2)
-		return (fixed2);
-	return (fixed1);
+	if (fixed1 >= fixed2)
+		return (fixed1);
+	return (fixed2);
 }
 
 Fixed	const	&Fixed::max(Fixed const &fixed1, Fixed const &fixed2)
 {
-	if (fixed1 <= fixed2)
-		return (fixed2);
-	return (fixed1);
+	if ((Fixed)fixed1 >= (Fixed)fixed2)
+		return (fixed1);
+	return (fixed2);
 }
