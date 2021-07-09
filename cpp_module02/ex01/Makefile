@@ -1,5 +1,7 @@
 NAME = Orthodox_class
 
+INCLUDE = Fixed.hpp
+
 CFLAGS = -Wall -Wextra -Werror  -std=c++98
 
 CC = clang++
@@ -11,7 +13,7 @@ bold = $(shell tput bold)
 
 all: $(NAME)
 
-$(NAME): $(SRC)
+$(NAME): $(SRC) $(INCLUDE)
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 	@echo "${bold}COMPILATION DONE!"
 

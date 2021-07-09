@@ -12,7 +12,7 @@ ClapTrap::ClapTrap(void)
 
 ClapTrap::ClapTrap(std::string name)
 {
-    std::cout << "parameterized Constructor has been called" << std::endl;
+    std::cout << "ClapTrap Default Constructor has been called" << std::endl;
     _Name = name;
     _Hitpoints = 10;
     _EnergyPoints = 10;
@@ -21,11 +21,11 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor has been called" << std::endl;
+    std::cout << "ClapTrap Destructor has been called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &claptrap){
-    std::cout << "Copy construtor has been called" << std::endl;
+    std::cout << "ClapTrap Copy construtor has been called" << std::endl;
     _Name = claptrap._Name;
     _Hitpoints = claptrap._Hitpoints;
     _EnergyPoints = claptrap._EnergyPoints;
@@ -34,6 +34,7 @@ ClapTrap::ClapTrap(ClapTrap const &claptrap){
 
 ClapTrap    &ClapTrap::operator= (ClapTrap const &claptrap)
 {
+    std::cout << "Assignation operator has been called" << std::endl;
     _Name = claptrap._Name;
     _Hitpoints = claptrap._Hitpoints;
     _EnergyPoints = claptrap._EnergyPoints;
@@ -48,7 +49,7 @@ void    ClapTrap::attack(std::string const &target)
 }
 
 void    ClapTrap::takeDamage(unsigned int amount){
-    std::cout << "ClapTrap <" << _Name << "> took  this amount : <" <<  amount << "> of damage from his last attack" << std::endl;
+    std::cout << "the amount of damage is "<< amount << " damage points " << _AttackDamage<< std::endl;
 }
 
 void    ClapTrap::beRepaired(unsigned int amount)

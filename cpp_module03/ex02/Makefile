@@ -1,12 +1,14 @@
-NAME = Orthodox_class
+NAME = fragTrap
 
-INCLUDE = Fixed.hpp
+INCLUDE = ClapTrap.hpp
 
 CFLAGS = -Wall -Wextra -Werror  -std=c++98
 
 CC = clang++
 
-SRC = 	Fixed.cpp	\
+SRC = 	ClapTrap.cpp	\
+		FragTrap.cpp	\
+		ScavTrap.cpp	\
 		main.cpp
 
 bold = $(shell tput bold)
