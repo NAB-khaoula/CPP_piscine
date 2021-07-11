@@ -1,13 +1,8 @@
 #include "ClapTrap.hpp"
 
 
-ClapTrap::ClapTrap(void)
-{
-    std::cout << "Default Constructor has been called" << std::endl;
-    _Name = "noname";
-    _Hitpoints = 10;
-    _EnergyPoints = 10;
-    _AttackDamage = 0;
+ClapTrap::ClapTrap(void){
+    std::cout << "\e[0;34mDefault Constructor has been called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
