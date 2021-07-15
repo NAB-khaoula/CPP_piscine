@@ -11,7 +11,7 @@ DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name){
     _Hitpoints = 100;
     _EnergyPoints = 50;
     _AttackDamage = 30;
-    ScavTrap::attack("DiamondTrap target");
+    attack("DiamondTrap target");
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &Diamondtrap) : ClapTrap(Diamondtrap)

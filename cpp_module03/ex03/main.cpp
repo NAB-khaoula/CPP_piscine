@@ -6,7 +6,7 @@ int main()
 
     Diamondtrap.whoAmI();
     Diamondtrap.highFivesGuys();
-    Diamondtrap.attack("enemy");
+    Diamondtrap.attack("ENEMY");
     Diamondtrap.takeDamage(68);
     Diamondtrap.beRepaired(78);
 }
