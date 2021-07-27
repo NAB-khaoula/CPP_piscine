@@ -30,4 +30,4 @@ int main()
     delete [] animal;
     delete j;//should not create a leak
     delete i;
-}
+} 
