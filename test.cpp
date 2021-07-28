@@ -1,28 +1,64 @@
+#include <string>
 #include <iostream>
-
-class Base
+#include <utility>
+ 
+class Animal
+{
+protected:
+    std::string m_name;
+ 
+    // We're making this constructor protected because
+    // we don't want people creating Animal objects directly,
+    // but we still want derived classes to be able to use it.
+    Animal(const std::string& name)
+        : m_name(name)
+    {
+    }
+ 
+public:
+    std::string getName() const { return m_name; }
+    virtual const char* speak() const = 0;
+    
+    ~Animal(){};
+};
+ 
+class Cat: public Animal
 {
 public:
-	void	print() { std::cout << "Base" << std::endl;}
+    Cat(const std::string& name)
+        : Animal(name)
+    {
+    }
+ 
+    const char* speak() const { return "Meow"; }
 };
-
-class Derived : public Base
+ 
+class Dog: public Animal
 {
-	void print() { std::cout << "Derived"<< std::endl;}
+public:
+    Dog(const std::string& name)
+        : Animal(name)
+    {
+    }
+ 
+    const char* speak() const { return "Woof"; }
 };
 
-class Derived2 : public Base
+class Cow : public Animal
 {
-	void print() { std::cout << "Derived2"<< std::endl;}
+public:
+    Cow(const std::string& name)
+        : Animal(name)
+    {
+    }
+ 	const char* speak() const { return "Moo"; }
+    // We forgot to redefine speak
 };
-
-
+ 
 int main()
 {
-	Base *base = new Base();
-	Base *derived = new Derived();
-	Base *derived2 = new Derived2 ();
-	// base->print();
-	derived->print();
-	derived2->print();
-}      
+    Cow cow("Betsy");
+    std::cout << cow.getName() << " says " << cow.speak() << '\n';
+ 
+    return 0;
+}

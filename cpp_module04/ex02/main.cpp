@@ -3,9 +3,9 @@
 
 int main()
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    const Animal **animal = new const Animal*[4];
+    const AAnimal* j = new Dog();
+    const AAnimal* i = new Cat();
+    const AAnimal **animal = new const AAnimal*[4];
     for (int k = 0; k < 4; k++)
     {
         if (k < 2)
