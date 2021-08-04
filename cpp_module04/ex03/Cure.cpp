@@ -4,6 +4,8 @@ Cure::Cure(){
 	std::cout << "Cure Default Constructor has been called" << std::endl;
 }
 
+Cure::Cure() : _type(type) {}
+
 Cure::Cure(const Cure &cure){
 	std::cout << "Cure Copy Constructor has been called" << std::endl;
 	(*this) = cure;
@@ -11,6 +13,8 @@ Cure::Cure(const Cure &cure){
 
 Cure &Cure::operator=(const Cure & cure){
 	std::cout << "Assignement operator has been called" << std::endl;
+	this->_type = cure->type;
+	return (*this);
 }
 
 Cure::~Cure(){

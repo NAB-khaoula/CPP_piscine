@@ -8,6 +8,7 @@ class Cure : public AMateria
 {
 public:
 	Cure();
+	Cure(std::string type);
 	Cure(const Cure &);
 	Cure &operator=(const Cure &);
 	~Cure();
