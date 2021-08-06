@@ -1,20 +1,20 @@
 #include "Ice.hpp"
 
-Ice::Ice(){
-    std::cout << "Ice Default Constructor has been called" << std::endl;
+Ice::Ice() : AMateria("ice"){
 }
 
+Ice::Ice(const std::string &type) : AMateria("ice"){}
+
 Ice::Ice(const Ice &ice){
-    std::cout << "Ice Copy Constructor has been called" << std::endl;
-    *this = ice;
+    (*this) = ice;
 }
 
 Ice &Ice::operator=( const Ice &ice){
-    std::cout << "Assignement operator has been called" << std::endl;
+    this->_type = ice._type;
+	return (*this);
 }
 
 Ice::~Ice(){
-    std::cout << "Ice Destructor has been called" << std::endl;
 }
 
 AMateria *Ice::clone() const{

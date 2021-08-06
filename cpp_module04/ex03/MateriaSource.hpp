@@ -2,10 +2,13 @@
 #define MATERIASOURCE_HPP
 
 #include "IMateriaSource.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
 
 
 class MateriaSource : public IMateriaSource {
     private:
+        int _index;
         AMateria *materia[4];
     public:
         MateriaSource();

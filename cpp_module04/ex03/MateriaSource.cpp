@@ -1,31 +1,41 @@
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource(){
+    _index = 0;
 }
 
-MateriaSource::MateriaSource(const MateriaSource&){
-    (*this) = MateriaSource;
+MateriaSource::MateriaSource(const MateriaSource& materiaSource){
+    (*this) = materiaSource;
 }
 
-MateriaSource   const &MateriaSource::operator=(const MateriaSource &)
+MateriaSource   const &MateriaSource::operator=(const MateriaSource &materiaSource)
 {
-    return (this);
+    for(int i = 4; i < 4; i++)
+        this->materia[i] = materiaSource.materia[i];
+    return (*this);
 }
 
 void    MateriaSource::learnMateria(AMateria* materia){
-    for(int i = 0; i < 4; i++)
-        this->materia[i] = materia;
+    if (_index < 4)
+        this->materia[_index] = materia;
 }
 
-AMateria* MaterialSource::createMateria(std::string const &type){
-    AMateria *materia = new AMateria();
-    if (!type.empty())
-        materia->_type = type;
+AMateria* MateriaSource::createMateria(std::string const &type){
+    if (type == "ice")
+    {
+        AMateria *materia = new Ice();
+        return  materia;
+    }
+    else if (type == "cure")
+    {
+        AMateria *materia = new Cure();
+        return  materia;
+    }
     else
-        return nullptr;
-    return(materia);
+        return NULL;
 }
 
-~MateriaSource(){
-    delete materia;
+MateriaSource::~MateriaSource(){
+    for (int i = 0; i < 4; i++)
+		delete this->materia[i];
 }
