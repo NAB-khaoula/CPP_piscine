@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <iomanip>
 #include "./ICharacter.hpp" 
 
 class ICharacter;

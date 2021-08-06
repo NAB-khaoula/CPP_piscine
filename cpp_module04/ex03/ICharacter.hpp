@@ -4,7 +4,6 @@
 #include "./AMateria.hpp"
 #include <string>
 #include <iostream>
-#include <iomanip>
 
 class AMateria;
 

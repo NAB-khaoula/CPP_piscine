@@ -13,6 +13,7 @@ INCLUDE = 	AMateria.hpp	\
 			MateriaSource.hpp
 
 SRC = 	Character.cpp	\
+		AMateria.cpp	\
 		Cure.cpp	\
 		Ice.cpp		\
 		MateriaSource.cpp	\
