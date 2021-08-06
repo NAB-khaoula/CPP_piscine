@@ -20,3 +20,6 @@ AMateria &AMateria::operator=(const AMateria& amateria){
 std::string &AMateria::getType(){
 	return (this->_type);
 }
+
+
+

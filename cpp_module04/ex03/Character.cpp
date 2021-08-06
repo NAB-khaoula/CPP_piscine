@@ -24,7 +24,7 @@ Character::~Character(){
 		delete this->materia[i];
 }
 
-std::string &Character::getName(){
+std::string const &Character::getName() const{
 	return _name;
 }
 

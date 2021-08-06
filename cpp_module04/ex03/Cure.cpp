@@ -3,7 +3,6 @@
 Cure::Cure() : AMateria("cure"){
 }
 
-Cure::Cure(const std::string &type) : AMateria("cure"){}
 
 Cure::Cure(const Cure &cure){
 	(*this) = cure;

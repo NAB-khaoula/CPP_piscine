@@ -3,7 +3,6 @@
 Ice::Ice() : AMateria("ice"){
 }
 
-Ice::Ice(const std::string &type) : AMateria("ice"){}
 
 Ice::Ice(const Ice &ice){
     (*this) = ice;
