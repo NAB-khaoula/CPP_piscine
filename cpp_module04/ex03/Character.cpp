@@ -3,6 +3,8 @@
 
 Character::Character(){
 	_index = 0;
+	for (int i = 0; i < 4; i++)
+		materia[i] = NULL;
 }
 
 Character::Character(std::string name): _name(name), _index(0) {}

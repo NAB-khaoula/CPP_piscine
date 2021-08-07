@@ -2,6 +2,8 @@
 
 MateriaSource::MateriaSource(){
     _index = 0;
+    for (int i = 0; i < 4; i++)
+		materia[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& materiaSource){
@@ -22,15 +24,9 @@ void    MateriaSource::learnMateria(AMateria* materia){
 
 AMateria* MateriaSource::createMateria(std::string const &type){
     if (type == "ice")
-    {
-        AMateria *materia = new Ice();
-        return  materia;
-    }
+        return (new Ice());
     else if (type == "cure")
-    {
-        AMateria *materia = new Cure();
-        return  materia;
-    }
+        return (new Cure());
     else
         return NULL;
 }
