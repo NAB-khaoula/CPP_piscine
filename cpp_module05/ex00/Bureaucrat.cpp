@@ -22,25 +22,12 @@ Bureaucrat::Bureaucrat() : _name("null"),  _grade(0)
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 {
-	try
-	{
-		if (grade < 0)
-		{
-			grade = -1;
-			throw Bureaucrat::GradeTooLowException();
-		}
-		else if (grade > 150)
-		{
-			grade = -1;
-			throw Bureaucrat::GradeTooHighException();
-		}
-		else
+	if (grade < 1)
+		throw Bureaucrat::GradeTooLowException();
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooHighException();
+	else
 			_grade = grade;
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bur)
