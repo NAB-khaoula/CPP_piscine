@@ -15,6 +15,10 @@ int main(){
 	{
 		Bureaucrat bur(name, grade);
 		std::cout << bur << std::endl;
+		bur.inc();
+		std::cout << bur << std::endl;
+		bur.dec();
+		std::cout << bur << std::endl;
 	}
 	catch (const std::exception& e)
 	{
