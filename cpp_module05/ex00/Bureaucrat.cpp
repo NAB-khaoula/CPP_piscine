@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooHighException();
 	else
-			_grade = grade;
+		_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bur)
