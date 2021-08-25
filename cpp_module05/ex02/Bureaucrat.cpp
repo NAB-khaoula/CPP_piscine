@@ -68,4 +68,12 @@ void	Bureaucrat::dec(){
 		throw Bureaucrat::GradeTooLowException();
 }
 
-
+void	Bureaucrat::executeForm(Form const & form){
+	try{
+		form.execute(*this);
+		std::cout << this->_name << " executes " << form.getName() << std::endl;
+	}
+	catch (std::exception & e){
+		std::cout << e.what();
+	}
+}

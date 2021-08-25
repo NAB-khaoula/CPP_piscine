@@ -19,8 +19,6 @@ Form::Form(const std::string name, const int signGrade, const int executeGrade) 
 		throw Bureaucrat::GradeTooLowException();
 }
 
-// need to complet the canonical form;
-
 Form::Form(const Form &form): _name(form._name), _signGrade(form._signGrade), _executeGrade(form._executeGrade) {
 	(*this) = form;
 }
@@ -70,4 +68,16 @@ void	Form::signForm(Bureaucrat &bur){
 	catch (std::exception &e){
 		std::cout << bur.getName() << " cannot sign " << this->getName() << " because " << e.what() << std::endl;
 	}
+}
+
+void	Form::execute(Bureaucrat const &executor) const{
+	if (_indicator)
+	{
+		if (_executeGrade >= executor.getGrade())
+			this->action();
+		else
+			throw	Form::GradeTooLowException();
+	}
+	else
+		std::cout << _name <<" form is not signed!" << std::endl;
 }

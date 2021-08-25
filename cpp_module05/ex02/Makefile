@@ -1,6 +1,9 @@
-NAME = Bureaucrat
+NAME = Form
 
 INCLUDE =	Bureaucrat.hpp	\
+			PresidentialPardonForm.hpp	\
+			RobotomyRequestForm.hpp		\
+			ShrubberyCreationForm.hpp		\
 			Form.hpp
 
 CFLAGS = -Wall -Wextra -Werror  -std=c++98
@@ -8,6 +11,9 @@ CFLAGS = -Wall -Wextra -Werror  -std=c++98
 CC = clang++
 
 SRC = 	Bureaucrat.cpp	\
+		PresidentialPardonForm.cpp	\
+		RobotomyRequestForm.cpp		\
+		ShrubberyCreationForm.cpp		\
 		Form.cpp	\
 		main.cpp
 

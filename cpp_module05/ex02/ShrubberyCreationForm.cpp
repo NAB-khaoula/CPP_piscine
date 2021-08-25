@@ -14,18 +14,20 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &shrubb
     (*this) = shrubberyForm;
 }
 
-ShrubberyCreationForm &operator= (const ShrubberyCreationForm &shrubberyForm)
+ShrubberyCreationForm &ShrubberyCreationForm::operator= (const ShrubberyCreationForm &shrubberyForm)
 {
     this->_target = shrubberyForm._target;
+    return(*this);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-void    ShrubberyCreationForm::action(){
-    std::ostream    outputFile;
+void    ShrubberyCreationForm::action() const{
+    std::ofstream    outputFile;
     outputFile.open("Shrubbery");
     outputFile << "       ****\n     ********\n    **  ******\n     *   ******     ******\n         ******   *********\n          ****  *****   ***\n          ***  ***     **\n    *************       *\n  ******************\n *****   H*****H*******\n ***     H-___-H  *********\n  ***    H     H      *******\n   **    H-___-H        *****\n     *   H     H         ****\n         H     H         ***\n         H-___-H         **\n         H     H         *\n         H-___-H\n\n         ALOHA!!\n" << std::endl;
     outputFile.close();
 }
+

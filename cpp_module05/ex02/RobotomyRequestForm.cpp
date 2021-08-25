@@ -14,16 +14,17 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &robotomyForm
  (*this) = robotomyForm;
 }
 
-RobotomyRequestForm &operator= (const RobotomyRequestForm &robotomyForm)
+RobotomyRequestForm &RobotomyRequestForm::operator= (const RobotomyRequestForm &robotomyForm)
 {
 	this->_target = robotomyForm._target;
+	return(*this);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-void    RobotomyRequestForm::action(){
+void    RobotomyRequestForm::action() const{
 	srand(time(0));
 	if (rand() % 2 == 0)
 	{

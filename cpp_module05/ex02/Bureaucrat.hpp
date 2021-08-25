@@ -2,7 +2,10 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
 #include <string>
+
+class Form;
 
 class Bureaucrat
 {
@@ -28,6 +31,7 @@ class Bureaucrat
 		int					getGrade() const;
 		void				inc();
 		void				dec();
+		void				executeForm(Form const & form);
 		~Bureaucrat();
 
 	

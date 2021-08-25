@@ -3,6 +3,7 @@
 
 #include "Form.hpp"
 #include <fstream>
+#include <stdlib.h>
 
 class RobotomyRequestForm : public Form
 {
@@ -14,7 +15,7 @@ public:
     RobotomyRequestForm(const RobotomyRequestForm &);
     RobotomyRequestForm &operator=(const RobotomyRequestForm &);
     ~RobotomyRequestForm();
-    void    action();
+    void    action() const;
 };
 
 

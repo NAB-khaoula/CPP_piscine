@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form {
 	private:
 		const std::string	_name;
@@ -26,12 +28,13 @@ class Form {
 		Form(const Form &);
 		Form	&operator=(const Form &);
 		const std::string getName() const;
-		bool		getIndicator() const;
-		int	getSignGrade() const;
-		int	getExecuteGrade() const;
-		void		beSigned(Bureaucrat &);
-		void		signForm(Bureaucrat &);
-		// execute(Bureaucrat const & executor) const
+		bool			getIndicator() const;
+		int				getSignGrade() const;
+		int				getExecuteGrade() const;
+		void			beSigned(Bureaucrat &);
+		void			signForm(Bureaucrat &);
+		void			execute(Bureaucrat const & executor) const;
+		virtual void	action() const = 0;
 		~Form();
 };
 

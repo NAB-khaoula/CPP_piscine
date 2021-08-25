@@ -1,16 +1,18 @@
-// #include "Form.hpp"
+#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <iostream>
 #include <fstream>
 int main(){
-	srand(time(0));
-	int i = rand();
-	if (i % 2 == 0)
-	{
-		std::cout << '\a';
-		std::cout << i <<" <target> has been robotomized successfully" << std::endl;
-	}
-	else
-	{
-		std::cout << i << " it’s a failure" << std::endl;
-	}
+	Form *form = new ShrubberyCreationForm("home");
+	Form *form1 = new RobotomyRequestForm("robotomyrequest");
+	Bureaucrat bureaucrat("khaoula", 137);
+
+	form->signForm(bureaucrat);
+	bureaucrat.executeForm(*form);
+	form->signForm(bureaucrat);
+	bureaucrat.executeForm(*form1);
+
+	return (0);
 }

@@ -14,7 +14,7 @@ public:
     ShrubberyCreationForm(const ShrubberyCreationForm &);
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &);
     ~ShrubberyCreationForm();
-    void    action();
+    void    action() const;
 };
 
 
