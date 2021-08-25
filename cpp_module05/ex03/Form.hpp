@@ -35,7 +35,7 @@ class Form {
 		void			signForm(Bureaucrat &);
 		void			execute(Bureaucrat const & executor) const;
 		virtual void	action() const = 0;
-		virtual	~Form();
+		virtual ~Form();
 };
 
 std::ostream&	operator<<(std::ostream& os, const Form &form);
