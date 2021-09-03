@@ -20,6 +20,7 @@ Cat	const &Cat::operator= (Cat const &cat){
     std::cout << "\033[0;32mcat's assignment operator has been called\033[0m" << std::endl;
 	this->_type = cat._type;
 	this->attribute = new Brain();
+	*attribute = *(cat.attribute);
 	return (*this);
 }
 

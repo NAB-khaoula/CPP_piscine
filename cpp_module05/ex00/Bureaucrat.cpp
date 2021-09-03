@@ -30,7 +30,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 		_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &bur)
+Bureaucrat::Bureaucrat(const Bureaucrat &bur) : _name(bur._name)
 {
 	(*this) = bur;
 }
@@ -40,6 +40,7 @@ Bureaucrat	&Bureaucrat::operator= (const Bureaucrat &bur)
 	_grade = bur._grade;
 	return (*this);	
 }
+
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat &bur)
 {

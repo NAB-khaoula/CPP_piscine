@@ -2,14 +2,21 @@
 
 Cat::Cat(){
 	this->_type = "Cat";
+    std::cout << "Cat Default constructor called" << std::endl;
 }
 
-Cat::Cat(Cat const &cat) : Animal(cat) {}
+Cat::Cat(Cat const &cat) : Animal(cat) {
+    std::cout << "Cat Copy constructor called" << std::endl;
+}
 
-Cat::~Cat() {}
+Cat::~Cat() {
+    std::cout << "Cat Destructor called" << std::endl;
+}
 
 Cat	const &Cat::operator= (Cat const &cat){
-	return (cat);
+	std::cout << "Cat Assignment operator called" << std::endl;
+    this->_type = cat._type;
+    return (*this);
 }
 
 void    Cat::makeSound() const

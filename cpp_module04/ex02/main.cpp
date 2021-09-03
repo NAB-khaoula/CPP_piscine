@@ -3,6 +3,8 @@
 
 int main()
 {
+    // Animal can't be instantiate;
+    // AAnimal test;
     const AAnimal* j = new Dog();
     const AAnimal* i = new Cat();
     const AAnimal **animal = new const AAnimal*[4];

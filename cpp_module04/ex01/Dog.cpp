@@ -20,6 +20,7 @@ Dog	const &Dog::operator= (Dog const &dog){
     std::cout << "\033[0;31mdog's assignment operator has been called\033[0m" << std::endl;
     this->_type = dog._type;
 	this->attribute = new Brain();
+    *attribute = *(dog.attribute);
 	return (*this);
 }
 

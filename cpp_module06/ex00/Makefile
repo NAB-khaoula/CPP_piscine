@@ -1,21 +1,13 @@
-NAME = Animals
+NAME = convert
+
+INCLUDE =	scalarConversion.hpp
 
 CFLAGS = -Wall -Wextra -Werror  -std=c++98
 
 CC = clang++
 
-INCLUDE = 	Cat.hpp	\
-			Dog.hpp	\
-			Animal.hpp	\
-			WrongAnimal.hpp	\
-			WrongCat.hpp
-
-SRC = 	Cat.cpp	\
-		Dog.cpp	\
-		Animal.cpp	\
-		WrongAnimal.cpp	\
-		WrongCat.cpp	\
-		main.cpp
+SRC = 	main.cpp	\
+		scalarConversion.cpp
 
 bold = $(shell tput bold)
 

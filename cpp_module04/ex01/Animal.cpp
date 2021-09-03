@@ -14,7 +14,8 @@ Animal::~Animal(){
 
 Animal const &Animal::operator= (Animal const &animal){
     std::cout << "assignment operator has been called" << std::endl;
-    return (animal);
+    _type = animal._type;
+    return (*this);
 }
 
 std::string Animal::getType() const{ return _type;}

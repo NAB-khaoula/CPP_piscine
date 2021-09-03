@@ -16,9 +16,9 @@ int main(){
 		Bureaucrat bur(name, grade);
 		std::cout << bur << std::endl;
 		bur.inc();
-		std::cout << bur << std::endl;
+		std::cout << bur << "(after increment)" << std::endl;
 		bur.dec();
-		std::cout << bur << std::endl;
+		std::cout << bur << "(after decrement)"<< std::endl;
 	}
 	catch (const std::exception& e)
 	{

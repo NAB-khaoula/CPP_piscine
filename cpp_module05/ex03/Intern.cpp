@@ -28,12 +28,9 @@ Intern::~Intern(){}
 Form* Intern::makeForm(std::string nameForm, std::string targetForm){
 	pointerToFunction pointerToForm[] = {&CreatShruberry, &CreatRobotomy, &CreatPresidential};
 	std::string name[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
-	for(int i = 0; i < 4; i++){
+	for(int i = 0; i < 4; i++)
 		if (name[i] == nameForm)
-		{
 			return (pointerToForm[i](targetForm));
-		}
-	}
 	std::cout << "ERROR! The name doesn't represent any form!" << std::endl;
 	return (NULL);
 }

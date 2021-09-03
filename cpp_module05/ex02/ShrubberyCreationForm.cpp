@@ -26,7 +26,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void    ShrubberyCreationForm::action() const{
     std::ofstream    outputFile;
-    outputFile.open("Shrubbery");
+    std::string str = _target + "_shrubbery";
+    outputFile.open(str);
     outputFile << "       ****\n     ********\n    **  ******\n     *   ******     ******\n         ******   *********\n          ****  *****   ***\n          ***  ***     **\n    *************       *\n  ******************\n *****   H*****H*******\n ***     H-___-H  *********\n  ***    H     H      *******\n   **    H-___-H        *****\n     *   H     H         ****\n         H     H         ***\n         H-___-H         **\n         H     H         *\n         H-___-H\n\n         ALOHA!!\n" << std::endl;
     outputFile.close();
 }

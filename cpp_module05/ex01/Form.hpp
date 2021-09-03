@@ -27,8 +27,8 @@ class Form {
 		Form	&operator=(const Form &);
 		const std::string getName() const;
 		bool		getIndicator() const;
-		int	getSignGrade() const;
-		int	getExecuteGrade() const;
+		int			getSignGrade() const;
+		int			getExecuteGrade() const;
 		void		beSigned(Bureaucrat &);
 		void		signForm(Bureaucrat &);
 		~Form();
