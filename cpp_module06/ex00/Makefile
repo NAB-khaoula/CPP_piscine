@@ -1,13 +1,13 @@
 NAME = convert
 
-INCLUDE =	scalarConversion.hpp
+INCLUDE =	Conversion.hpp
 
 CFLAGS = -Wall -Wextra -Werror  -std=c++98
 
 CC = clang++
 
 SRC = 	main.cpp	\
-		scalarConversion.cpp
+		Conversion.cpp
 
 bold = $(shell tput bold)
 
