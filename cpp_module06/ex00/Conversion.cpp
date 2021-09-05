@@ -112,3 +112,26 @@ void	valueIsNumber(char *string, Conversion *conversion){
 		}
 	}
 }
+
+void	printResult(double result){
+	if (isprint(static_cast<int>(result)))
+		std::cout << "char: '" << static_cast<char>(result)  << "'" << std::endl;
+	else
+		std::cout << "char: Non displayable"<< std::endl;
+	std::cout << "int: " << static_cast<int>(result) << std::endl;
+	std::cout << "float: " << static_cast<float>(result);
+	if (((static_cast<int>(result * 10) % 10 )== 0))
+		std::cout << ".0";
+	std::cout << "f" << std::endl;
+	std::cout << "double: " <<result;
+	if ((static_cast<int>(result * 10.0)) % 10 == 0)
+		std::cout << ".0";
+	std::cout << std::endl;
+}
+
+void	printSpecialCase(std::string result){
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: " << result << "f" << std::endl;
+	std::cout << "double: " << result  << std::endl;
+}

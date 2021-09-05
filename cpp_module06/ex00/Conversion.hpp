@@ -44,5 +44,6 @@ bool		valueIsInf(char *string);
 void		valueIsNumber(char *string, Conversion *conversion);
 Conversion	*checkLiteralValue(char *string);
 int			printLiteralValue(Conversion *conversion);
-
+void		printResult(double result);
+void		printSpecialCase(std::string result);
 #endif
