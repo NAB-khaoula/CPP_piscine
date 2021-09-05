@@ -3,14 +3,11 @@
 Conversion	*checkLiteralValue(char *string){
 	Conversion *conversion = new Conversion();
 	if (valueIsChar(string))
-	{
-		conversion->setChar(*string);
-		conversion->setTypeOfArgument(CharValue);
-	}
+		conversion->setValideArgument(true);
 	else if (valueIsNan(string))
 	{
-		conversion->setinf("nan");
-		conversion->setTypeOfArgument(NanValue);
+		std::string str(string);
+		conversion->setinf(str);
 	}
 	else if (valueIsInf(string))
 	{
@@ -18,32 +15,17 @@ Conversion	*checkLiteralValue(char *string){
 		if (str.compare("+inff") || str.compare("-inff"))
 			str.erase(4,1);
 		conversion->setinf(str);
-		conversion->setTypeOfArgument(InfValue);
 	}
 	else
 		valueIsNumber(string, conversion);
 	return conversion;
 }
 
-int	printLiteralValue(Conversion *conversion){
-	if (conversion->getTypeOfArgument() == NanValue){
+int	printLiteralValue(Conversion *conversion, char *string){
+	if (conversion->getSpecialCase())
 		printSpecialCase(conversion->getinf());
-	}
-	else if (conversion->getTypeOfArgument() == InfValue){
-		printSpecialCase(conversion->getinf());
-	}
-	else if (conversion->getTypeOfArgument() == CharValue){
-		printResult(static_cast<double>(conversion->getChar()));
-	}
-	else if (conversion->getTypeOfArgument() == FloatValue){
-		printResult(static_cast<double>(conversion->getFloat()));
-	}
-	else if (conversion->getTypeOfArgument() == DoubleValue){
-		printResult(conversion->getDouble());
-	}
-	else if (conversion->getTypeOfArgument() == IntegerValue){
-		printResult(static_cast<double>(conversion->getInt()));
-	}
+	else if (conversion->getValideArgument() )
+		printResult(static_cast<double>(atof(string)));
 	else{
 		std::cout << "ERROR! not a valid literal value!" << std::endl;
 		delete conversion;
@@ -56,7 +38,7 @@ int	printLiteralValue(Conversion *conversion){
 int main(int ac, char **av){
 	if (ac == 2){
 		Conversion *conversion = checkLiteralValue(av[1]);
-		return (printLiteralValue(conversion));
+		return (printLiteralValue(conversion, av[1]));
 	}
 	else if (ac == 1)
 		std::cout << "ERROR! Argument needed." << std::endl;

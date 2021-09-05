@@ -13,29 +13,20 @@
 
 class   Conversion{
 	private:
-		int			_toInt;
-		char		_toChar;
-		float		_toFloat;
-		double		_toDouble;
+		bool		_valideArgument;
+		bool		_specialCase;
 		std::string	_inf;
-		int			_typeOfArgument;
 	public:
 		Conversion();
 		Conversion(const Conversion&);
 		Conversion &operator=(const Conversion&);
 		~Conversion();
-		void		setChar(char c);
-		void		setInt(int convertedValue);
-		void		setFloat(float convertedValue);
-		void		setDouble(double convertedValue);
-		void		setinf(std::string convertedValue);
-		void		setTypeOfArgument(int type);
-		char		getChar();
-		int			getInt();
-		float		getFloat();
-		double		getDouble();
+		void		setValideArgument(bool type);
+		void		setSpecialCase(bool type);
+		void		setinf(std::string value);
 		std::string	getinf();
-		int			getTypeOfArgument();
+		bool		getValideArgument();
+		bool		getSpecialCase();
 };
 
 bool		valueIsChar(char *string);
@@ -43,7 +34,7 @@ bool		valueIsNan(char *string);
 bool		valueIsInf(char *string);
 void		valueIsNumber(char *string, Conversion *conversion);
 Conversion	*checkLiteralValue(char *string);
-int			printLiteralValue(Conversion *conversion);
+int			printLiteralValue(Conversion *conversion, char *string);
 void		printResult(double result);
 void		printSpecialCase(std::string result);
 #endif

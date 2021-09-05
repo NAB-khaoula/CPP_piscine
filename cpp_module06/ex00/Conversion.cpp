@@ -1,6 +1,6 @@
 #include "Conversion.hpp"
 
-Conversion::Conversion(){}
+Conversion::Conversion(): _valideArgument(false), _specialCase(false){}
 
 Conversion::Conversion(const Conversion& conversion){
 	(*this) = conversion;
@@ -10,56 +10,32 @@ Conversion::~Conversion(){
 }
 
 Conversion    &Conversion::operator=(const Conversion& conversion){
-	_toChar = conversion._toChar;
-	_toInt = conversion._toInt;
-	_toFloat = conversion._toFloat;
-	_toDouble = conversion._toDouble;
-	_inf = conversion._inf;
+	_valideArgument = conversion._valideArgument;
 	return (*this);
 }
 
-void	Conversion::setChar(char c){
-	_toChar = c;
+void	Conversion::setValideArgument(bool	type){
+	_valideArgument = type;
 }
 
-void	Conversion::setInt(int ConvertedValue){
-	_toInt = ConvertedValue;
+bool	Conversion::getValideArgument(){
+	return	_valideArgument;
 }
 
-void	Conversion::setDouble(double ConvertedValue){
-	_toDouble = ConvertedValue;
+void	Conversion::setSpecialCase(bool	type){
+	_specialCase = type;
 }
 
-void	Conversion::setFloat(float ConvertedValue){
-	_toFloat = ConvertedValue;
+bool	Conversion::getSpecialCase(){
+	return	_specialCase;
 }
 
-void	Conversion::setinf(std::string convertedValue){
-	_inf = convertedValue;
+void	Conversion::setinf(std::string value){
+	_inf = value;
 }
 
-void	Conversion::setTypeOfArgument(int type){
-	_typeOfArgument = type;
-}
-
-char		Conversion::getChar(){
-	return _toChar;
-}
-
-int			Conversion::getInt(){
-	return _toInt;
-}
-float		Conversion::getFloat(){
-	return _toFloat;
-}
-double		Conversion::getDouble(){
-	return _toDouble;
-}
 std::string	Conversion::getinf(){
 	return _inf;
-}
-int			Conversion::getTypeOfArgument(){
-	return _typeOfArgument;
 }
 
 bool	valueIsChar(char *string){
@@ -93,23 +69,15 @@ void	valueIsNumber(char *string, Conversion *conversion){
 		i++;
 	}
 	if (checkInteger)
-	{
-		conversion->setInt(atoi(string));
-		conversion->setTypeOfArgument(IntegerValue);
-		return ;
-	}
+		conversion->setValideArgument(true);
 	else if (string[i]== '.'){
 		i++;
 		while(isdigit(string[i]))
 			i++;
-		if (!string[i]){
-			conversion->setDouble(atof(string));
-			conversion->setTypeOfArgument(DoubleValue);
-		}
-		else if (string[i] == 'f'){
-			conversion->setFloat(atof(string));
-			conversion->setTypeOfArgument(FloatValue);
-		}
+		if (!string[i])
+			conversion->setValideArgument(true);
+		else if (string[i] == 'f')
+			conversion->setValideArgument(true);
 	}
 }
 
@@ -120,11 +88,11 @@ void	printResult(double result){
 		std::cout << "char: Non displayable"<< std::endl;
 	std::cout << "int: " << static_cast<int>(result) << std::endl;
 	std::cout << "float: " << static_cast<float>(result);
-	if (((static_cast<int>(result * 10) % 10 )== 0))
+	if (((static_cast<int>(result * 10000.0) % 10000 )== 0))
 		std::cout << ".0";
 	std::cout << "f" << std::endl;
-	std::cout << "double: " <<result;
-	if ((static_cast<int>(result * 10.0)) % 10 == 0)
+	std::cout << "double: " << static_cast<double>(result);
+	if ((static_cast<int>(result * 10000.0)) % 10000 == 0)
 		std::cout << ".0";
 	std::cout << std::endl;
 }
