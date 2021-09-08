@@ -48,8 +48,8 @@ std::ostream&	operator<<(std::ostream& os, const Bureaucrat &bur)
 	return(os);
 }
 
-Bureaucrat::~Bureaucrat()
-{
+Bureaucrat::~Bureaucrat(){
+	std::cout << "destructor" << std::endl;
 }
 
 void	Bureaucrat::inc()

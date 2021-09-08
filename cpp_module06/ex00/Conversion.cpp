@@ -81,7 +81,7 @@ void	valueIsNumber(char *string, Conversion *conversion){
 	}
 }
 
-void	printResult(double result){
+void	printResult(float result){
 	if (isprint(static_cast<int>(result)))
 		std::cout << "char: '" << static_cast<char>(result)  << "'" << std::endl;
 	else

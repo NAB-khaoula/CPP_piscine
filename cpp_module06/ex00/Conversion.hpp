@@ -35,6 +35,6 @@ bool		valueIsInf(char *string);
 void		valueIsNumber(char *string, Conversion *conversion);
 Conversion	*checkLiteralValue(char *string);
 int			printLiteralValue(Conversion *conversion, char *string);
-void		printResult(double result);
+void		printResult(float result);
 void		printSpecialCase(std::string result);
 #endif

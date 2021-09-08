@@ -25,7 +25,7 @@ int	printLiteralValue(Conversion *conversion, char *string){
 	if (conversion->getSpecialCase())
 		printSpecialCase(conversion->getinf());
 	else if (conversion->getValideArgument() )
-		printResult(static_cast<double>(atof(string)));
+		printResult(static_cast<float>(atof(string)));
 	else{
 		std::cout << "ERROR! not a valid literal value!" << std::endl;
 		delete conversion;
