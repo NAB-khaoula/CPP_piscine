@@ -33,10 +33,7 @@ Array<Type> &Array<Type>::operator=(const Array& array){
 
 template <typename Type>
 int	Array<Type>::size() const{
-	int i = 1;
-	while(_element[i])
-		i++;
-	return (i);
+	return (sizeof(_element) / sizeof(Type));
 }
 
 template <typename Type>
@@ -49,8 +46,8 @@ Type &Array<Type>::operator[](std::size_t idx){
 
 
 int main(){
-	Array<int>  a(3);
-	Array<char>  test(3);
+	Array<int>  a(-3);
+	// Array<char>  test(3);
 	a[0] = 0;
 	a[1] = 1;
 	a[2] = 2;
@@ -75,3 +72,5 @@ int main(){
 		std::cout << "ERROR!" << std::endl;
 	}
 }
+
+

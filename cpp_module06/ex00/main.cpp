@@ -8,6 +8,7 @@ Conversion	*checkLiteralValue(char *string){
 	{
 		std::string str(string);
 		conversion->setinf(str);
+		conversion->setSpecialCase(true);
 	}
 	else if (valueIsInf(string))
 	{
@@ -15,6 +16,7 @@ Conversion	*checkLiteralValue(char *string){
 		if (str.compare("+inff") || str.compare("-inff"))
 			str.erase(4,1);
 		conversion->setinf(str);
+		conversion->setSpecialCase(true);
 	}
 	else
 		valueIsNumber(string, conversion);
